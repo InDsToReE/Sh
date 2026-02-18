@@ -1322,6 +1322,85 @@ create_frontend() {
     .mode-card-icon { font-size: 2rem; margin-bottom: 8px; }
     .mode-card-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
     .mode-card-desc { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── DESKTOP LAYOUT ── */
+    @media(min-width: 1024px) {
+      body { font-size: 17px; }
+      #app {
+        max-width: 1100px;
+        padding: 32px 48px;
+      }
+      .header { padding: 28px 0 40px; margin-bottom: 40px; }
+      .logo { font-size: 2rem; }
+      .player-badge { font-size: 1rem; padding: 10px 22px; }
+      .setup-hero { padding: 60px 0 72px; }
+      .setup-hero h1 { font-size: 5rem; }
+      .setup-hero p { font-size: 1.15rem; max-width: 520px; }
+      .setup-name-form { max-width: 500px; }
+      .setup-name-form .input { font-size: 1.1rem; padding: 16px 20px; }
+      .btn { padding: 14px 32px; font-size: 1rem; }
+      .btn-sm { padding: 10px 20px; font-size: 0.88rem; }
+      .card { padding: 32px; border-radius: 20px; }
+      .card-title { font-size: 1.25rem; margin-bottom: 20px; }
+      .tabs { gap: 8px; margin-bottom: 28px; }
+      .tab { padding: 10px 24px; font-size: 0.95rem; border-radius: 10px; }
+      .input { padding: 14px 20px; font-size: 1rem; border-radius: 12px; }
+      .input-label { font-size: 0.82rem; }
+      .lobby-item { padding: 20px 28px; border-radius: 16px; }
+      .lobby-item-name { font-size: 1.05rem; margin-bottom: 6px; }
+      .lobby-item-meta { font-size: 0.85rem; gap: 16px; }
+      .diff-badge { font-size: 0.78rem; padding: 4px 14px; }
+      .hint-box { padding: 40px 48px; border-radius: 20px; margin-bottom: 32px; }
+      .hint-label { font-size: 0.8rem; margin-bottom: 16px; }
+      .hint-text { font-size: 1.6rem; margin-bottom: 20px; }
+      .word-length { font-size: 0.95rem; }
+      .blank { width: 28px; height: 4px; }
+      .tts-btn { padding: 10px 22px; font-size: 0.9rem; }
+      .spell-input { max-width: 520px; font-size: 1.8rem; padding: 22px 30px; border-radius: 18px; }
+      .answer-area { gap: 20px; }
+      .scoreboard { border-radius: 18px; margin-top: 32px; }
+      .scoreboard-title { padding: 16px 28px; font-size: 0.8rem; }
+      .score-row { padding: 14px 28px; font-size: 1rem; }
+      .score-rank { width: 36px; font-size: 0.9rem; }
+      .score-pts { font-size: 0.95rem; }
+      .events-log { height: 150px; font-size: 0.88rem; padding: 14px 20px; margin-top: 24px; border-radius: 14px; }
+      .game-header { margin-bottom: 36px; }
+      .round-info { font-size: 0.95rem; }
+      .round-num { font-size: 1.8rem; }
+      .timer-ring { width: 80px; height: 80px; }
+      .timer-ring svg { width: 80px; height: 80px; }
+      .timer-ring .label { font-size: 1.2rem; }
+      .waiting-title { font-size: 2rem; }
+      .waiting-subtitle { font-size: 0.95rem; }
+      .player-card { padding: 28px 20px; border-radius: 16px; }
+      .player-card .avatar { width: 60px; height: 60px; font-size: 1.6rem; }
+      .player-card .pname { font-size: 1rem; }
+      .players-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; margin-bottom: 32px; }
+      .game-over-title { font-size: 3.2rem; }
+      .winner-spotlight { padding: 44px; min-width: 300px; }
+      .winner-trophy { font-size: 4rem; }
+      .winner-name { font-size: 1.8rem; }
+      .winner-score { font-size: 1.3rem; }
+      .lb-row { padding: 16px 28px; font-size: 0.98rem; }
+      .lb-header { padding: 12px 28px; font-size: 0.78rem; }
+      .solo-stats-bar { gap: 16px; margin-bottom: 32px; }
+      .solo-stat { padding: 20px 24px; border-radius: 16px; }
+      .solo-stat-val { font-size: 2rem; }
+      .solo-stat-label { font-size: 0.78rem; }
+      .streak-fire { font-size: 0.95rem; padding: 10px 20px; }
+      .result-stat { padding: 28px; border-radius: 18px; }
+      .result-stat-val { font-size: 2.6rem; }
+      .solo-result-grid { gap: 16px; margin-bottom: 32px; }
+      .notif-item { font-size: 0.95rem; padding: 14px 22px; max-width: 340px; }
+    }
+
+    @media(min-width: 1400px) {
+      #app { max-width: 1260px; }
+      .setup-hero h1 { font-size: 6rem; }
+      .hint-text { font-size: 1.9rem; }
+      .spell-input { font-size: 2rem; max-width: 580px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -1338,11 +1417,22 @@ create_frontend() {
   <div class="screen active" id="screen-setup">
     <div class="setup-hero">
       <h1>AI Spelling<br><span class="line2">Battle Royale</span></h1>
-      <p>Listen to the AI pronounce words. Type what you hear. Compete in real-time lobbies.</p>
+      <p>AI generates words, TTS reads them aloud — type what you hear. Play solo or compete in real-time lobbies.</p>
       <form class="setup-name-form" onsubmit="submitName(event)">
         <input class="input" id="nameInput" placeholder="Enter your name…" maxlength="20" autocomplete="off" required />
         <button class="btn btn-primary" type="submit">Play →</button>
       </form>
+      <div style="margin-top:16px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+        <span style="color:var(--muted);font-size:0.82rem;display:flex;align-items:center;gap:6px">
+          🎯 <b style="color:var(--text)">Solo mode</b> — practice alone
+        </span>
+        <span style="color:var(--muted);font-size:0.82rem;display:flex;align-items:center;gap:6px">
+          👥 <b style="color:var(--text)">Multiplayer</b> — battle others
+        </span>
+        <span style="color:var(--muted);font-size:0.82rem;display:flex;align-items:center;gap:6px">
+          🏆 <b style="color:var(--text)">Leaderboard</b> — global ranks
+        </span>
+      </div>
     </div>
   </div>
 
